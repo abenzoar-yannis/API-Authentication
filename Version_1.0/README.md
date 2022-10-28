@@ -4,7 +4,7 @@
 
 ### Elle permet :
 
-- De créer un compte avec une adresse mail, un mot de passe et un nom (optionnel). Le mot de passe sera crypté avant d’être stocké dans la base de données. [bcrypt]
+- De créer un compte avec une adresse mail, un mot de passe et un nom (optionnel). Le mot de passe sera crypté avec [bcrypt] avant d’être stocké dans la base de données.
 - De se connecter avec l’adresse mail et le mot de passe, puis de recevoir ID utilisateur, son nom, et un Token d’authentification [jsonwebtoken] qui expire par défaut en 24H.
 
 ### l’API va vérifier :
@@ -17,18 +17,18 @@ A la Création de compte :
 
 A la demande de connexion :
 
-- Elle va rechercher un compte utilisateur avec le mail envoyer, et comparer le mot de passe reçu avec celui crypté dans la base de données. [bcrypt]
+- Elle va rechercher un compte utilisateur avec le mail envoyer, et comparer le mot de passe reçu avec celui crypté avec [bcrypt] dans la base de données.
 - Elle limitera les demandes de connexion à 5 par tranche de 10 minutes. [express-rate-limit]
 
 ## 📚 Technologies utiliséesimage
 
-- ![image]({https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white}) [Node.js]
-- ![image]({https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white}) [Express]
-- ![image]({https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white}) [MongoDB-Atlas]
+- ![Node.js]({https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white}) [Node.js](http://nodejs.org)
+- ![Express JS]({https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white}) [Express](http://expressjs.com)
+- ![MongoDB]({https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white}) [MongoDB-Atlas](https://www.mongodb.com/)
 
 ### Package npm utilisés :
 
-![image]({https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white}) [NPM]
+![NPM]({https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white}) [NPM](https://www.npmjs.com/)
 
 - [dotenv] Gestion des variables d'environement
 - [jsonwebtoken] Authentification par Bearer Token
@@ -79,8 +79,4 @@ nodemon server
 [express-rate-limit]: https://www.npmjs.com/package/express-rate-limit
 [email-validator]: https://www.npmjs.com/package/email-validator
 [password-validator]: https://www.npmjs.com/package/password-validator
-[node.js]: http://nodejs.org
-[npm]: https://www.npmjs.com/
-[mongodb-atlas]: https://www.mongodb.com/
-[express]: http://expressjs.com
 [//]: # "order for gitfolio"

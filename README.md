@@ -6,9 +6,9 @@ Chacune des versions disposent d’un README vous expliquent toutes les fonction
 
 ## 📚 Technologies principal utilisées
 
-- ![Node.js]({https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white}) [Node.js]
-- ![Express JS]({https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white}) [Express]
-- ![MongoDB]({https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white}) [MongoDB-Atlas]
+- ![Node.js]({https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white}) [Node.js](http://nodejs.org)
+- ![Express JS]({https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white}) [Express](http://expressjs.com)
+- ![MongoDB]({https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white}) [MongoDB-Atlas](https://www.mongodb.com/)
 
 ## 💻 Versions et leur fonctionnalitées
 
@@ -46,7 +46,4 @@ nodemon server
 [express-rate-limit]: https://www.npmjs.com/package/express-rate-limit
 [email-validator]: https://www.npmjs.com/package/email-validator
 [password-validator]: https://www.npmjs.com/package/password-validator
-[node.js]: http://nodejs.org
-[mongodb-atlas]: https://www.mongodb.com/
-[express]: http://expressjs.com
 [//]: # "order for gitfolio"
