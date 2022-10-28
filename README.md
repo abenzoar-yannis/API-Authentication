@@ -12,10 +12,10 @@ Chacune des versions disposent d’un README vous expliquent toutes les fonction
 
 ## 💻 Versions et leur fonctionnalitées
 
-- [Version 1.0](https://github.com/abenzoar-yannis/API-Authentication/VERSION_1.0) :
+- [Version 1.0](https://github.com/abenzoar-yannis/API-Authentication/tree/main/Version_1.0) :
   Créer un compte avec email et mot de passe,
   Se connecter et recevoir un Token d’identification.
-- [Version 1.1]() :
+- Version 1.1 :
   Ajoute une route d’authentification par Token.
 
 ## ⚙ Installation du backend

@@ -20,15 +20,15 @@ A la demande de connexion :
 - Elle va rechercher un compte utilisateur avec le mail envoyer, et comparer le mot de passe reçu avec celui crypté dans la base de données. [bcrypt]
 - Elle limitera les demandes de connexion à 5 par tranche de 10 minutes. [express-rate-limit]
 
-## 📚 Technologies utilisées
+## 📚 Technologies utiliséesimage
 
-- ![Node.js]({https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white}) [Node.js]
-- ![Express JS]({https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white}) [Express]
-- ![MongoDB]({https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white}) [MongoDB-Atlas]
+- ![image]({https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white}) [Node.js]
+- ![image]({https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white}) [Express]
+- ![image]({https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white}) [MongoDB-Atlas]
 
 ### Package npm utilisés :
 
-![NPM]({https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white}) [NPM]
+![image]({https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white}) [NPM]
 
 - [dotenv] Gestion des variables d'environement
 - [jsonwebtoken] Authentification par Bearer Token
