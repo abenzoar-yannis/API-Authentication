@@ -20,7 +20,7 @@ router.post(
   "/signup",
   createAccountLimiter,
   emailValidator.newAccount,
-  passwordValidator,
+  passwordValidator.newAccount,
   userCtrl.signup
 ); // Create user
 router.post("/login", connexionLimiter, userCtrl.login); // Connexion user
@@ -28,12 +28,19 @@ router.post("/login", connexionLimiter, userCtrl.login); // Connexion user
 router.get("/user/:id", auth, personalDataAccess, userCtrl.getOneUser); // Acces to a user Data
 
 router.post(
-  "/user/:id",
+  "/user/modifydata/:id",
   auth,
   personalDataAccess,
   emailValidator.modifyAccount,
   userCtrl.modifyDataUser
 ); // Modify personal data except the password
+router.post(
+  "/user/modifypassword/:id",
+  auth,
+  personalDataAccess,
+  passwordValidator.modifyAccount,
+  userCtrl.modifyPassword
+); // Modify the password
 
 router.post("/", userCtrl.auth); // Authentification
 

@@ -119,3 +119,67 @@ exports.modifyDataUser = (req, res, next) => {
       .catch((error) => res.status(400).json({ error }));
   }
 };
+
+/* EXPORT : Logic for modify the password */
+exports.modifyPassword = (req, res, next) => {
+  /* how should the request be : 
+    req.body = {
+      userId: String,
+      password: String, // Your old password
+      newDataUser: {
+        password: String, // The new password
+      },
+    };
+  */
+  User.findOne({ _id: req.auth.userId }).then((user) => {
+    bcrypt
+      .compare(req.body.password, user.password)
+      .then((passwordValidity) => {
+        switch (passwordValidity) {
+          case false:
+            res.status(401).json({
+              status: 401,
+              message: "your original password is incorrect !",
+              error: "User Unauthorize !",
+            });
+            break;
+          case true:
+            if (req.body.password !== req.body.newDataUser.password) {
+              bcrypt
+                .hash(req.body.newDataUser.password, dotenvConfig.SALTROUNDS)
+                .then((hash) => {
+                  const newPassword = { password: hash };
+
+                  User.updateOne({ _id: req.params.id }, { ...newPassword })
+                    .then((user) => {
+                      if (!user) {
+                        res
+                          .status(404)
+                          .json({ status: 404, error: "User not find !" });
+                      } else {
+                        res.status(200).json({
+                          status: 200,
+                          message: "Password modified !",
+                        });
+                      }
+                    })
+                    .catch((error) => res.status(400).json({ error }));
+                })
+                .catch((error) => res.status(400).json({ error }));
+            } else {
+              res.status(400).json({
+                status: 400,
+                message: "Passwords must be different !",
+                error: "Bad request",
+              });
+            }
+            break;
+          default:
+            res.status(400).json({
+              status: 400,
+              error: "Password authentification Failed !",
+            });
+        }
+      });
+  });
+};
