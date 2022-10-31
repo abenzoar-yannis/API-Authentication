@@ -78,30 +78,44 @@ exports.login = (req, res, next) => {
 
 /* EXPORT : Logic for user data acces */
 exports.getOneUser = (req, res, next) => {
-  switch (req.params.id) {
-    case req.auth.userId && req.body.userId:
-      User.findOne({ _id: req.params.id })
-        .then((user) => {
-          if (!user) {
-            res.status(404).json({ error: "User not find !" });
-          } else {
-            user.password = "************";
-            res.status(200).json({ user });
-          }
-        })
-        .catch((error) => res.status(400).json({ error }));
-      break;
-    case !req.auth.userId || !req.body.userId:
-      res.status(401).json({
-        status: 401,
-        message: "User unauthorized !",
-        error: "Wrong Token, ID or params !",
-      });
-      break;
-    default:
-      res.status(401).json({
-        status: 401,
-        message: "Acces restricted !",
-      });
+  User.findOne({ _id: req.params.id })
+    .then((user) => {
+      if (!user) {
+        res.status(404).json({ error: "User not find !" });
+      } else {
+        user.password = "************";
+        res.status(200).json({ user });
+      }
+    })
+    .catch((error) => res.status(400).json({ error }));
+};
+
+/* EXPORT : Logic for modify user information except password */
+exports.modifyDataUser = (req, res, next) => {
+  /* how should the request be : 
+    req.body = {
+      userId: String,
+      newDataUser: {
+        name: String, // only if you want to change the name
+        email: String, // only if you want to change the email
+      },
+    };
+  */
+
+  if (req.body.newDataUser.password) {
+    res.status(400).json({
+      status: 400,
+      error: "this route does not allow the modification of the password !",
+    });
+  } else {
+    User.updateOne({ _id: req.params.id }, { ...req.body.newDataUser })
+      .then((user) => {
+        if (!user) {
+          res.status(404).json({ status: 404, error: "User not find !" });
+        } else {
+          res.status(200).json({ status: 200, message: "User modified !" });
+        }
+      })
+      .catch((error) => res.status(400).json({ error }));
   }
 };
