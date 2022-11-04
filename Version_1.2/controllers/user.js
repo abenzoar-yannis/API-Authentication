@@ -183,3 +183,36 @@ exports.modifyPassword = (req, res, next) => {
       });
   });
 };
+
+/* EXPORT : Logic for deleted user */
+exports.deleteUser = (req, res, next) => {
+  User.findOne({ _id: req.auth.userId }).then((user) => {
+    bcrypt
+      .compare(req.body.password, user.password)
+      .then((passwordValidity) => {
+        switch (passwordValidity) {
+          case false:
+            res.status(401).json({
+              status: 401,
+              message: "Password is incorrect !",
+              error: "User Unauthorize !",
+            });
+            break;
+
+          case true:
+            User.deleteOne({ _id: req.params.id })
+              .then((user) =>
+                res.status(200).json({ message: "User deleted !" })
+              )
+              .catch((error) => res.status(400).json({ error }));
+            break;
+
+          default:
+            res.status(400).json({
+              status: 400,
+              error: "Password authentification Failed !",
+            });
+        }
+      });
+  });
+};

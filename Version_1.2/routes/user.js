@@ -41,6 +41,7 @@ router.post(
   passwordValidator.modifyAccount,
   userCtrl.modifyPassword
 ); // Modify the password
+router.delete("/user/:id", auth, personalDataAccess, userCtrl.deleteUser); // Delete user account
 
 router.post("/", userCtrl.auth); // Authentification
 
